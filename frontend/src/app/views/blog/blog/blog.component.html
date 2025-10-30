@@ -1,0 +1,52 @@
+<section class="blog">
+  <div class="container">
+    <h2>Блог</h2>
+    <div class="filter-block">
+      <div class="applied-filters">
+        <ng-container *ngFor="let category of categories">
+          <div class="applied-filter" *ngIf="category.active">
+            <span>{{ category.name }}</span>
+            <svg (click)="selectFilterCategory(category)" width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0.935531" y1="1.15002" x2="12.9563" y2="13.1708" stroke="#709FDC" stroke-linecap="round"/>
+              <line x1="12.9236" y1="1.12984" x2="0.902784" y2="13.1507" stroke="#709FDC" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </ng-container>
+      </div>
+      <div class="filter" *ngIf="categories.length" [class.open]="isFilterOpen">
+        <div class="filter-title" (click)="toggleFilter()">
+          <span>Фильтр</span>
+          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 14.5C9.41668 14.5 8.83335 14.275 8.39168 13.8334L2.95835 8.40003C2.71668 8.15837 2.71668 7.75837 2.95835 7.5167C3.20002 7.27503 3.60002 7.27503 3.84168 7.5167L9.27502 12.95C9.67502 13.35 10.325 13.35 10.725 12.95L16.1583 7.5167C16.4 7.27503 16.8 7.27503 17.0417 7.5167C17.2833 7.75837 17.2833 8.15837 17.0417 8.40003L11.6083 13.8334C11.1667 14.275 10.5833 14.5 10 14.5Z"
+              fill="#071739"/>
+          </svg>
+        </div>
+        <div class="filter-items">
+          <div *ngFor="let category of categories" (click)="selectFilterCategory(category)" [class.active]="category.active">
+            <span>{{ category.name }}</span>
+            <span>{{ category.active ? '+' : '-' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="articles">
+      <article-component *ngFor="let article of articles" [article]="article"></article-component>
+    </div>
+    <div class="pagination" *ngIf="totalPages > 1">
+      <svg [class.disabled-svg]="currentPage === 1" (click)="goToPage(currentPage - 1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+        <path
+          d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
+      </svg>
+      <div class="pages">
+        <span *ngFor="let _ of [].constructor(totalPages); let i = index" (click)="goToPage(i + 1)"
+              [class.active]="currentPage === i + 1">{{ i + 1 }}
+        </span>
+      </div>
+      <svg [class.disabled-svg]="currentPage === totalPages" (click)="goToPage(currentPage + 1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+        <path
+          d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
+      </svg>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+<div class="popup" *ngIf="data.popupType === popupType.requestForService || data.popupType === popupType.orderConsultation">
+  <svg mat-dialog-close width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="1.9355" y1="2.64999" x2="13.9563" y2="14.6708" stroke="#BEBEBE" stroke-linecap="round"/>
+    <line x1="13.9236" y1="2.62978" x2="1.90277" y2="14.6506" stroke="#BEBEBE" stroke-linecap="round"/>
+  </svg>
+  <form [formGroup]="popupForm">
+    <h2>{{ data.popupType === popupType.requestForService ? 'Заявка на услугу' : 'Закажите бесплатную консультацию!' }}</h2>
+    <div *ngIf="data.popupType === popupType.requestForService" class="custom-select" [class.open]="isDropdownOpen">
+      <div class="select-header" [class.placeholder]="!selectedService" (click)="toggleDropdown()" [class.error]="isCustomSelectError()">
+        <span>{{ selectedService?.name || 'Выберите услугу' }}</span>
+        <svg width="14" height="8" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1l6 6 6-6" stroke="#000" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="select-body" *ngIf="isDropdownOpen">
+        <div class="select-item" *ngFor="let category of categories" (click)="selectService(category)" [hidden]="selectedService?.name === category.name">
+          {{ category.name }}</div>
+      </div>
+    </div>
+    <div *ngIf="isError(service)" class="error-message">Выберите услугу!</div>
+    <input type="text" placeholder="Ваше имя" formControlName="name" [class.error]="isError(name)">
+    <div *ngIf="isError(name) && !name?.value" class="error-message">Заполните имя!</div>
+    <div *ngIf="isError(name) && name?.errors?.['pattern']" class="error-message">Введите корректное значение в формате: «‎Имя»‎!</div>
+    <input type="tel" mask="+0 (000) 000-00-00" placeholder="Ваш номер телефона" formControlName="phone" [class.error]="isError(phone)">
+    <div *ngIf="isError(phone) && !phone?.value" class="error-message">Заполните номер телефона!</div>
+    <div *ngIf="isError(phone) && phone?.errors?.['pattern']" class="error-message">Введите корректное значение номера телефона!</div>
+    <button class="button" (click)="userRequest()" [disabled]="!popupForm.valid">{{data.popupType === popupType.requestForService ? 'Оставить заявку' : 'Заказать консультацию'}}</button>
+  </form>
+</div>
+
+<div class="popup" *ngIf="data.popupType === popupType.confirmation">
+  <svg mat-dialog-close width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="1.9355" y1="2.64999" x2="13.9563" y2="14.6708" stroke="#BEBEBE" stroke-linecap="round"/>
+    <line x1="13.9236" y1="2.62978" x2="1.90277" y2="14.6506" stroke="#BEBEBE" stroke-linecap="round"/>
+  </svg>
+  <h2>Спасибо за вашу заявку!</h2>
+  <p>Мы свяжемся с вами при первой же возможности.</p>
+  <button class="button low-button" mat-dialog-close>Окей</button>
+</div>
+
+<div class="popup logout-popup" *ngIf="data.popupType === popupType.logout">
+  <svg mat-dialog-close width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="1.9355" y1="2.64999" x2="13.9563" y2="14.6708" stroke="#BEBEBE" stroke-linecap="round"/>
+    <line x1="13.9236" y1="2.62978" x2="1.90277" y2="14.6506" stroke="#BEBEBE" stroke-linecap="round"/>
+  </svg>
+  <div (click)="logout()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 640 640">
+      <path d="M224 160C241.7 160 256 145.7 256 128C256 110.3 241.7 96 224 96L160 96C107 96 64 139 64 192L64 448C64 501 107 544 160 544L224 544C241.7 544 256 529.7 256 512C256 494.3 241.7 480 224 480L160 480C142.3 480 128 465.7 128 448L128 192C128 174.3 142.3 160 160 160L224 160zM566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L438.6 169.3C426.1 156.8 405.8 156.8 393.3 169.3C380.8 181.8 380.8 202.1 393.3 214.6L466.7 288L256 288C238.3 288 224 302.3 224 320C224 337.7 238.3 352 256 352L466.7 352L393.3 425.4C380.8 437.9 380.8 458.2 393.3 470.7C405.8 483.2 426.1 483.2 438.6 470.7L566.6 342.7z"/>
+    </svg>
+    <span>Выйти из аккаунта</span>
+  </div>
+</div>

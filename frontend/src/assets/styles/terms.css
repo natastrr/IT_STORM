@@ -1,0 +1,39 @@
+body {
+  background: linear-gradient(to right, #b9d5fd 0%, white 10%, white 90%, #b9d5fd 100%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #071739;
+  line-height: 1.5;
+  font-size: 20px;
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 50px;
+  color: #709fdc;
+}
+
+h3 {
+  text-align: center;
+  color: #709fdc;
+}
+
+p {
+  text-align: justify;
+  text-indent: 1.5em;
+}
+
+ol {
+  padding-inline-start: 35px;
+}
+
+ol li {
+  padding: 10px 0;
+  text-align: justify;
+}

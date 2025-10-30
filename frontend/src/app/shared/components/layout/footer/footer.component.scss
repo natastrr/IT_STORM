@@ -1,0 +1,103 @@
+@import "../../../../../assets/styles/variables";
+
+.footer {
+  background-color: $footer-color;
+  padding: 40px 0 54px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+
+  .container {
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .nav-menu {
+
+        ul {
+          gap: 20px;
+
+          li a {
+            font-weight: 400;
+            cursor: pointer;
+          }
+        }
+
+      }
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+      display: flex;
+      align-items: baseline;
+      gap: 60px;
+
+      .footer-block {
+
+        .footer-block-title {
+          font-weight: 500;
+          font-size: 16px;
+          color: $light-blue;
+          margin-bottom: 10px;
+        }
+
+        .footer-block-text {
+          font-size: 16px;
+          line-height: 130%;
+          color: $dark-blue-text;
+        }
+
+        &.address {
+          max-width: 253px;
+        }
+
+        &.phone {
+          max-width: 153px;
+
+          a {
+            font-size: 16px;
+            color: $dark-blue-text;
+          }
+
+          .button {
+            margin-top: 10px;
+            width: 100%;
+          }
+        }
+
+        &.email {
+          max-width: 127px;
+
+          a {
+            font-weight: 400;
+            font-size: 14px;
+            color: $dark-blue-text;
+          }
+        }
+
+        &.socials {
+          .footer-block-title {
+            margin-bottom: 15px;
+          }
+        }
+
+        .social-contacts {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          a svg:hover path {
+            fill: $light-blue;
+          }
+        }
+      }
+    }
+
+    .rights {
+      font-size: 16px;
+      color: $light-blue;
+      margin-top: 6px;
+    }
+  }
+}

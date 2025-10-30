@@ -1,0 +1,379 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.main-slider {
+  padding-bottom: 60px;
+
+  .container {
+    .main-slider-content {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right;
+      padding: 100px 80px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+
+      &:has(.main-slider-text) {
+        padding: 85px 80px;
+      }
+
+      & > * {
+        position: relative;
+      }
+
+      .main-slider-pre-title {
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: $light-blue;
+      }
+
+      .main-slider-title {
+        font-family: "Lora", sans-serif;
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 130%;
+        color: $white;
+        max-width: 610px;
+
+        span {
+          font-family: inherit;
+          font-weight: inherit;
+          color: $light-blue;
+        }
+      }
+
+      .main-slider-text {
+        font-size: 24px;
+        line-height: 130%;
+        color: $white;
+        max-width: 456px;
+        margin-bottom: 50px;
+        margin-top: 20px;
+
+        & + .button {
+          margin-top: 50px;
+        }
+      }
+
+      .button {
+        width: 163px;
+        margin-top: 40px;
+      }
+
+      &::before {
+        content: "";
+        width: 1405px;
+        height: 1405px;
+        border-radius: 50%;
+        background-color: $footer-color;
+        position: absolute;
+        bottom: -202px;
+        right: 537px;
+      }
+    }
+  }
+}
+
+.offers {
+  padding: 60px 0;
+
+  .container {
+
+    h2 {
+      @include title-lora-38;
+      margin: 0 0 40px 0;
+    }
+
+    .offers-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+
+      .offers-item {
+        width: 290px;
+
+        .offers-item-image {
+          width: inherit;
+          height: 290px;
+          border-radius: 5px;
+          background-size: cover;
+          background-position: center;
+        }
+
+        .offers-item-title {
+          margin: 15px 0 10px;
+          font-weight: 500;
+          font-size: 20px;
+          color: $light-blue;
+        }
+
+        .offers-item-description {
+          font-size: 14px;
+          line-height: 130%;
+          color: $dark-blue-text;
+          height: 90px;
+        }
+
+        .offers-item-action {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 33px;
+
+          .offers-item-price {
+            font-weight: 600;
+            font-size: 20px;
+            color: $light-blue;
+          }
+
+          .button {
+            width: 163px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.about {
+  padding: 60px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 68px;
+
+    .about-image {
+      width: 460px;
+      height: 460px;
+      background-image: url("../../../assets/images/pages/main/about-image.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 5px;
+      flex-shrink: 0;
+    }
+
+    .about-info {
+
+      h2 {
+        @include title-lora-38;
+        margin: 0 0 20px 0;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 130%;
+        color: $dark-text;
+        margin-bottom: 40px;
+
+        span {
+          font-weight: 500;
+
+          &:not(:first-child) {
+            display: block;
+          }
+        }
+      }
+
+      h4 {
+        @include title-lora-38;
+        font-size: 26px;
+        margin: 0 0 20px 0;
+      }
+
+      .advantages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+
+        .advantage {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          max-width: 316px;
+
+          .advantage-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $footer-color;
+            flex-shrink: 0;
+
+            span {
+              font-family: "Lora", sans-serif;
+              font-weight: 500;
+              font-size: 50px;
+              color: $light-blue;
+              display: block;
+              text-align: center;
+              position: relative;
+              top: -19px;
+            }
+          }
+
+          .advantage-info {
+            font-size: 14px;
+            line-height: 130%;
+            color: $dark-text;
+
+            span {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.popular {
+  padding: 60px 0;
+
+  .container {
+
+    h2 {
+      @include title-lora-38;
+      margin-bottom: 40px;
+    }
+
+    .articles {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 14px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: $light-blue;
+      margin-top: 40px;
+
+      &:hover {
+        color: $footer-color;
+
+        svg path {
+          fill: $footer-color;
+        }
+      }
+    }
+  }
+}
+
+.reviews {
+  padding: 60px 0;
+
+  .container {
+
+    h2 {
+      @include title-lora-38;
+      margin-bottom: 20px;
+    }
+
+    .review {
+      padding: 30px;
+      width: auto;
+      height: 267px;
+      border: 2px solid $light-blue;
+      border-radius: 5px;
+
+      .reviewer {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        margin-bottom: 15px;
+
+        .reviewer-image {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background-size: cover;
+          background-position: center;
+          background-color: $footer-color;
+        }
+
+        .reviewer-name {
+          font-weight: 600;
+          font-size: 18px;
+          color: $light-blue;
+        }
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 140%;
+        color: $dark-blue-text;
+      }
+    }
+  }
+}
+
+
+.contacts {
+  padding: 60px 0 120px;
+
+  .container {
+    display: flex;
+    gap: 26px;
+
+    iframe {
+      flex-shrink: 0;
+    }
+
+    .contacts-info {
+      flex: 1;
+
+      h2 {
+        @include title-lora-38;
+        margin-bottom: 20px;
+      }
+
+      .contacts-info-title {
+        font-weight: 500;
+        font-size: 20px;
+        color: $light-blue;
+        margin-bottom: 10px;
+      }
+
+      .contacts-info-text {
+        font-size: 14px;
+        line-height: 130%;
+        color: $dark-blue-text;
+        max-width: 430px;
+        margin-bottom: 20px;
+      }
+
+      a.contacts-info-text {
+        display: block;
+        cursor: pointer;
+
+        &:hover {
+          color: $light-blue;
+        }
+      }
+
+      .contacts-info-icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        a svg:hover path {
+          fill: $light-blue;
+        }
+      }
+    }
+  }
+}

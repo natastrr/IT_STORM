@@ -1,0 +1,7 @@
+<div class="content-container">
+  <header-component (logoClick)="onLogoClick()" (scrollTo)="scrollToSection($event)"></header-component>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <footer-component (logoClick)="onLogoClick()" (scrollTo)="scrollToSection($event)"></footer-component>
+</div>

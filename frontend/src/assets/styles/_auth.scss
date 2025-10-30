@@ -1,0 +1,136 @@
+@import "mixins";
+@import "variables";
+
+.auth {
+  padding: 106px 0 92px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    form {
+      width: 422px;
+
+      h2 {
+        @include title-lora-38;
+        font-size: 36px;
+        margin: 0 0 40px 0;
+        white-space: nowrap;
+      }
+
+      input {
+        margin-bottom: 5px;
+
+        &:not([type="checkbox"]) {
+          width: 100%;
+        }
+      }
+
+      .password-input {
+        position: relative;
+
+        svg {
+          position: absolute;
+          top: 15px;
+          right: 10px;
+          width: 20px;
+          cursor: pointer;
+
+          path {
+            fill: $light-blue;
+          }
+
+          &:hover {
+            path {
+              fill: $footer-color;
+            }
+          }
+        }
+
+        input.error ~ svg {
+
+          path {
+            fill: $red;
+          }
+
+          &:hover {
+            path {
+              fill: $transparent-red;
+            }
+          }
+        }
+      }
+
+      .remember-me, .agreement {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0 40px;
+
+        input[type="checkbox"] {
+          margin: 0;
+          flex-shrink: 0;
+        }
+
+        label {
+          user-select: none;
+          font-size: 14px;
+          line-height: 130%;
+          color: $dark-blue-text;
+
+          a {
+            text-decoration: underline;
+            color: $light-blue;
+
+            &:hover {
+              color: $footer-color;
+            }
+          }
+        }
+      }
+
+      .remember-me {
+        align-items: center;
+      }
+
+      .agreement {
+        align-items: baseline;
+
+        input[type="checkbox"] {
+          position: relative;
+          top: 2px;
+        }
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .auth-link {
+        font-size: 14px;
+        color: $dark-text;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        user-select: none;
+        margin-top: 10px;
+
+        a {
+          color: $light-blue;
+
+          &:hover {
+            color: $footer-color;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    img {
+      max-width: 607px;
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,0 +1,195 @@
+@import "../../../../assets/styles/mixins.scss";
+@import "../../../../assets/styles/variables.scss";
+
+.blog {
+  padding: 80px 0 120px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+
+  h2 {
+    @include title-lora-38;
+    margin-bottom: 40px;
+  }
+
+  .filter-block {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    .applied-filters {
+      display: flex;
+      align-items: center;
+      align-self: start;
+      gap: 8px;
+      flex-wrap: wrap;
+
+      .applied-filter {
+        padding: 8px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 16px;
+        color: $light-blue;
+        border: 1px solid $light-blue;
+        border-radius: 5px;
+        cursor: default;
+
+        svg {
+          position: relative;
+          top: 1px;
+          cursor: pointer;
+        }
+
+        &:hover {
+          background-color: $light-blue;
+          color: $white;
+
+          svg line {
+            stroke: $white;
+          }
+        }
+      }
+    }
+
+    .filter {
+      cursor: pointer;
+      width: 257px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+
+      .filter-title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 60px;
+        padding: 12px 0 12px 23px;
+        border-radius: 5px;
+        transition: .5s;
+      }
+
+      .filter-items {
+        display: none;
+        position: absolute;
+      }
+
+      &.open {
+
+        .filter-title {
+          padding-right: 23px;
+          background-color: $footer-color;
+          gap: 130px;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+
+          svg {
+            rotate: 180deg;
+          }
+        }
+
+        .filter-items {
+          display: block;
+          width: 100%;
+          padding: 12px 23px;
+          background-color: $white;
+          border: 2px solid $footer-color;
+          border-top: 0;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+
+          div {
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: $filter-gray;
+
+            span:last-child {
+              font-size: 24px;
+              color: $filter-gray;
+              width: 20px;
+              text-align: center;
+            }
+
+            &.active {
+              color: $dark-blue-text;
+
+              span:last-child {
+                color: $dark-blue-text;
+              }
+            }
+
+            &:hover {
+              color: $light-blue;
+
+              span:last-child {
+                color: $light-blue;
+              }
+            }
+          }
+        }
+      }
+
+      &:hover:not(.open) {
+        .filter-title {
+          padding-right: 23px;
+          background-color: $footer-color;
+          gap: 130px;
+        }
+      }
+    }
+  }
+
+  .articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 25px;
+    margin-top: 40px;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 40px;
+    color: $dark-blue-text;
+
+    svg {
+      height: 19px;
+      cursor: pointer;
+      fill: $light-blue;
+
+      &:hover:not(.disabled-svg) {
+        fill: $footer-color;
+      }
+
+      &.disabled-svg {
+        cursor: not-allowed;
+        fill: $filter-gray;
+      }
+    }
+
+    .pages {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      span {
+        font-size: 20px;
+        padding: 10px;
+        cursor: pointer;
+
+        &:hover {
+          color: $light-blue;
+        }
+
+        &.active {
+          color: $footer-color;
+        }
+
+      }
+    }
+  }
+}

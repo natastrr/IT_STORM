@@ -1,0 +1,50 @@
+@import "../../../../../assets/styles/variables";
+
+.header {
+  padding: 40px 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .nav-menu {
+      gap: 257px;
+
+      ul {
+        gap: 30px;
+
+        li a {
+          font-weight: 500;
+          cursor: pointer;
+        }
+      }
+
+      .phone {
+        font-weight: 500;
+        font-size: 16px;
+        color: $light-blue;
+      }
+    }
+
+    .account {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: $dark-blue-text;
+      font-weight: 500;
+      font-size: 16px;
+      cursor: pointer;
+
+      &:hover {
+        color: $light-blue;
+
+        svg path {
+          stroke: $light-blue;
+        }
+      }
+    }
+  }
+}

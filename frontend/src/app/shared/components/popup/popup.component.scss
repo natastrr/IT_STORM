@@ -1,0 +1,173 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.popup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+
+  & > svg {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+
+    &:hover line {
+      stroke: $light-blue;
+    }
+  }
+
+  h2 {
+    @include title-lora-38;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .custom-select {
+    position: relative;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: $light-blue;
+    line-height: 1;
+    user-select: none;
+
+    .select-header {
+      padding: 17px 20px;
+      border: 2px solid $light-blue;
+      border-radius: inherit;
+      height: 53px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+
+      &.placeholder {
+        color: $light-gray;
+      }
+
+      svg path {
+        stroke: $light-blue;
+      }
+
+      &.error {
+        border-color: $red;
+        background-color: $transparent-red;
+
+        svg path {
+          stroke: $red;
+        }
+      }
+
+      &.placeholder.error {
+        color: $white;
+      }
+    }
+
+    .select-body {
+      position: absolute;
+      left: 0;
+      background-color: $white;
+      width: inherit;
+      z-index: 1;
+      border: 2px solid $light-blue;
+      border-top: none;
+      border-radius: inherit;
+      max-height: 190px;
+      overflow-y: scroll;
+
+      .select-item {
+        padding: 17px 20px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $footer-color;
+          color: $dark-blue-text;
+        }
+      }
+    }
+
+    &.open {
+
+      .select-header {
+        border-bottom: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+      .select-body {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+
+  p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    text-align: center;
+    color: $dark-text;
+  }
+
+  .button {
+    margin-top: 20px;
+
+    &.low-button {
+      margin-top: 40px;
+      width: 73px;
+    }
+  }
+
+  form {
+    width: 422px;
+
+    & > * {
+      width: 100%;
+    }
+
+    select, input, div.custom-select {
+      margin-bottom: 5px;
+    }
+
+  }
+
+  &.logout-popup {
+    padding: 50px;
+
+    svg {
+      top: 10px;
+      right: 10px;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      &:hover {
+        cursor: pointer;
+        color: $light-blue;
+        text-decoration: underline;
+
+        svg path {
+          fill: $light-blue;
+        }
+      }
+    }
+  }
+
+}

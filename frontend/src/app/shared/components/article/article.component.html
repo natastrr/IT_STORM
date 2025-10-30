@@ -1,0 +1,9 @@
+<article class="article" [routerLink]="['/blog', article.url]">
+  <div class="article-category">{{ article.category }}</div>
+  <div class="article-image" [style.background-image]="'url(assets/images/article-images/' + article.image + ')'"></div>
+  <div class="article-info">
+    <div class="article-title">{{ article.title }}</div>
+    <p class="article-description">{{ article.description }}</p>
+    <a [routerLink]="['/blog', article.url]" (click)="$event.stopPropagation()">Читать дальше</a>
+  </div>
+</article>
