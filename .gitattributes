@@ -1,0 +1,4 @@
+# Correct GitHub language statistics for Angular project
+
+src/**/*.html linguist-language=TypeScript
+src/**/*.css linguist-language=SCSS
